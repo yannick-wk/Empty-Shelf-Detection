@@ -19,6 +19,7 @@ from pathlib import Path
 import tempfile
 import pandas as pd
 from datetime import datetime, timedelta
+import sys
 
 # Import utility modules
 from model_utils import load_model
@@ -33,11 +34,17 @@ st.set_page_config(
 )
 
 # Define model paths
-BASE_DIR = "/home/yannick/tf-nn/PERSONAL"
-IMPROVED_MODEL_PATH = f"{BASE_DIR}/runs/detect/yolov8m_improved_empty_shelf/weights/best.pt"
-IMPROVED_MODEL2_PATH = f"{BASE_DIR}/runs/detect/yolov8m_improved_empty_shelf_dataset2/weights/best.pt"
-ORIGINAL_MODEL_PATH = f"{BASE_DIR}/runs/detect/yolov8n_empty_shelf_detector_v1/weights/best.pt"
-DEFAULT_MODEL_PATH = f"{BASE_DIR}/yolov8m.pt"  # Fallback to base model if trained models not found
+import os
+from pathlib import Path
+
+# Get the project root directory (where the script is located)
+BASE_DIR = Path(__file__).parent.absolute()
+
+# Define model paths relative to the project root
+IMPROVED_MODEL_PATH = os.path.join(BASE_DIR, "runs", "detect", "yolov8m_improved_empty_shelf", "weights", "best.pt")
+IMPROVED_MODEL2_PATH = os.path.join(BASE_DIR, "runs", "detect", "yolov8m_improved_empty_shelf_dataset2", "weights", "best.pt")
+ORIGINAL_MODEL_PATH = os.path.join(BASE_DIR, "runs", "detect", "yolov8n_empty_shelf_detector_v1", "weights", "best.pt")
+DEFAULT_MODEL_PATH = os.path.join(BASE_DIR, "yolov8m.pt")  # Fallback to base model if trained models not found
 
 # Confidence threshold slider in sidebar
 def sidebar_settings():
