@@ -29,12 +29,32 @@ ENV/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# Model files and datasets
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.h5
+*.hdf5
+*.pb
+*.trt
+
 # Logs and runs
 logs/
 *.log
 wandb/
 lightning_logs/
 events.out.tfevents.*
+
+# Images and media
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.mp4
+*.avi
+*.mov
+!docs/images/
 
 # IDE specific files
 .idea/
@@ -55,3 +75,9 @@ __pycache__/
 tmp/
 temp/
 *.tmp
+
+# Specific to this project
+runs/*
+!runs/.gitkeep
+data/*
+!data/.gitkeep
