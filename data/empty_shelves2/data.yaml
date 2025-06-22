@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['100% O.O.S', '100- O.O.S']
+
+roboflow:
+  workspace: fyp-ormnr
+  project: empty-shelf-detector
+  version: 5
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/fyp-ormnr/empty-shelf-detector/dataset/5
